@@ -24,7 +24,7 @@ export default function HomePage() {
         {/* Small Brand Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-brand-amber/30 bg-brand-amber-light text-brand-amber text-xs font-bold uppercase tracking-widest mb-6 animate-fade-up">
           <Sparkles size={14} />
-          <span>Yeni Sezon 2026 Atelier Koleksiyonu</span>
+          <span>Yeni Sezon 2026 Netero Koleksiyonu</span>
         </div>
 
         {/* Fluid Clamp Heading */}

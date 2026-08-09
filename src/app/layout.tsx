@@ -19,10 +19,10 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Netero Giyim — Lüks Kadın & Erkek Giyim & Aksesuar",
-  description: "Zamansız estetik, yüksek terzilik ve %100 doğal kaşmir, ipek ve hakiki deri tasarımlar. Netero Giyim Atelier.",
+  description: "Zamansız estetik, yüksek terzilik ve %100 doğal kaşmir, ipek ve hakiki deri tasarımlar. Netero Giyim.",
   keywords: ["Netero Giyim", "Lüks Giyim", "Kaşmir Palto", "Deri Çanta", "İpek Gömlek", "Sürdürülebilir Moda"],
   openGraph: {
-    title: "Netero Giyim Atelier",
+    title: "Netero Giyim",
     description: "Less but better felsefesiyle üretilen lüks giyim ve deri aksesuar koleksiyonu.",
     type: "website",
     locale: "tr_TR",

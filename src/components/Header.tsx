@@ -51,9 +51,6 @@ export default function Header() {
             <span className="font-heading font-bold text-2xl sm:text-3xl tracking-widest text-brand-charcoal group-hover:text-brand-amber transition-colors">
               NETERO
             </span>
-            <span className="text-[10px] font-sans tracking-widest uppercase text-brand-muted border-l border-brand-border pl-2 hidden sm:inline-block">
-              ATELIER
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
