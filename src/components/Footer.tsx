@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ShieldCheck, Truck, RotateCcw, Lock } from "lucide-react";
 
