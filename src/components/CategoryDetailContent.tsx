@@ -40,10 +40,12 @@ export default function CategoryDetailContent({ slug }: CategoryDetailContentPro
     categoryProducts = [...categoryProducts].sort((a, b) => b.price - a.price);
   }
 
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center text-xs text-brand-muted gap-2 mb-8">
+      <nav className="flex items-center text-xs text-brand-muted gap-2 mb-6 overflow-x-auto whitespace-nowrap pb-1">
         <Link href="/" className="hover:text-brand-charcoal">Ana Sayfa</Link>
         <ChevronRight size={12} />
         <Link href="/kategori/kadin" className="hover:text-brand-charcoal">Koleksiyonlar</Link>
@@ -52,19 +54,32 @@ export default function CategoryDetailContent({ slug }: CategoryDetailContentPro
       </nav>
 
       {/* Category Banner Header */}
-      <div className="mb-12 border-b border-brand-border pb-8">
-        <h1 className="font-heading font-extrabold text-3xl sm:text-4xl text-brand-charcoal">
+      <div className="mb-8 border-b border-brand-border pb-6">
+        <h1 className="font-heading font-extrabold text-2xl sm:text-4xl text-brand-charcoal">
           {currentCategory?.name || "Tüm Koleksiyon"}
         </h1>
-        <p className="text-sm text-brand-muted mt-2 max-w-2xl">
+        <p className="text-xs sm:text-sm text-brand-muted mt-2 max-w-2xl">
           {currentCategory?.description || "Atelier Nova zamansız parçalar seçkisi."}
         </p>
+      </div>
+
+      {/* Mobile Filter Toggle Button */}
+      <div className="lg:hidden mb-6 flex items-center justify-between bg-white p-4 rounded-lg border border-brand-border">
+        <button
+          type="button"
+          onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+          className="flex items-center gap-2 font-heading font-bold text-xs uppercase tracking-wider text-brand-charcoal"
+        >
+          <SlidersHorizontal size={16} className="text-brand-amber" />
+          <span>{isMobileFilterOpen ? "Filtreleri Gizle" : "Filtrele & Sırala"}</span>
+        </button>
+        <span className="text-xs font-bold text-brand-amber">{categoryProducts.length} Ürün</span>
       </div>
 
       {/* Main Category Layout (Filter Sidebar + Product Grid) */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left Filter Sidebar */}
-        <aside className="space-y-8 bg-white p-6 rounded-lg border border-brand-border h-fit">
+        <aside className={`space-y-6 bg-white p-6 rounded-lg border border-brand-border h-fit ${isMobileFilterOpen ? "block" : "hidden lg:block"}`}>
           <div className="flex items-center justify-between border-b border-brand-border pb-4">
             <div className="flex items-center gap-2 font-heading font-bold text-sm text-brand-charcoal">
               <SlidersHorizontal size={18} className="text-brand-amber" />

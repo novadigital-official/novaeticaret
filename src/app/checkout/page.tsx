@@ -135,7 +135,7 @@ export default function CheckoutPage() {
           {/* Left Form Column */}
           <div className="lg:col-span-7 space-y-8">
             {step === 1 ? (
-              <form onSubmit={handleDeliverySubmit} className="bg-white p-8 rounded-lg border border-brand-border space-y-6">
+              <form onSubmit={handleDeliverySubmit} className="bg-white p-4 sm:p-8 rounded-lg border border-brand-border space-y-6">
                 <h3 className="font-heading font-bold text-lg text-brand-charcoal border-b border-brand-border pb-4">
                   Teslimat & İletişim Bilgileri
                 </h3>

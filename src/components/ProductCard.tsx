@@ -75,8 +75,8 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           <Heart size={18} className={isWishlisted ? "fill-red-600 text-red-600" : ""} />
         </button>
 
-        {/* Hover Quick Actions Bar */}
-        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+        {/* Quick Actions Bar (Visible on mobile touch, hover on desktop) */}
+        <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-center gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 z-10">
           {onQuickView && (
             <button
               type="button"

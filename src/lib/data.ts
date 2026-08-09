@@ -55,6 +55,9 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRODUCTS: Product[] = [
+  // ═══════════════════════════════════════════════════════════
+  // 1. DIŞ GİYİM & PALTO (dis-giyim)
+  // ═══════════════════════════════════════════════════════════
   {
     id: "netero-prod-1",
     name: "Atelier Kaşmir Yün Palto",
@@ -78,36 +81,69 @@ export const PRODUCTS: Product[] = [
     details: [
       "%70 Moğol Kaşmiri, %30 İtalyan Merinos Yünü",
       "Kruvaze çift düğme kapama",
-      "Kuru temizleme önerilir",
-      "İtalya'da özel atelier üretimi"
+      "Kuru temizleme önerilir"
     ]
   },
   {
-    id: "netero-prod-2",
-    name: "Netero Minimalist Deri Omuz Çantası",
-    slug: "netero-minimalist-deri-omuz-cantasi",
-    description: "Tabaklanmış hakiki dana derisinden el işçiliğiyle üretilen, zamansız siluete sahip lüks omuz çantası. Mıknatıslı pirinç klips ve süet iç astar.",
-    price: 9850,
-    categorySlug: "aksesuar",
-    categoryName: "Deri Aksesuar & Çanta",
+    id: "netero-prod-7",
+    name: "Deri Yakalı Süet Trençkot",
+    slug: "deri-yakali-suet-trenckot",
+    description: "Hakiki kuzu süetinden üretilmiş, deri detaylı yakası ve kuşağı ile modern lüksün temsilcisi trençkot.",
+    price: 24500,
+    compareAtPrice: 28000,
+    categorySlug: "dis-giyim",
+    categoryName: "Dış Giyim & Palto",
     images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: true,
-    stock: 8,
-    sizes: ["Tek Ebat"],
+    stock: 4,
+    sizes: ["36", "38", "40"],
     colors: [
       { name: "Taba Kahve", hex: "#8B4513" },
-      { name: "Gece Siyahı", hex: "#1A1A1A" }
+      { name: "Siyah", hex: "#1A1A1A" }
     ],
-    details: [
-      "%100 Hakiki Dana Derisi",
-      "Ayarlanabilir deri omuz askısı",
-      "Genişlik: 28cm, Yükseklik: 20cm, Derinlik: 9cm",
-      "Özel bez muhafaza çantası ile teslim edilir"
-    ]
+    details: ["%100 Kuzu Süeti", "Süet temizliği uzmanı tarafından yapılmalıdır"]
   },
+  {
+    id: "netero-prod-8",
+    name: "Su Geçirmez Minimalist Yağmurluk",
+    slug: "su-gecirmez-minimalist-yagmurluk",
+    description: "Nefes alabilen özel membran dokusuyla yağmurlu günlerde kusursuz stil sunan lüks parka.",
+    price: 9200,
+    categorySlug: "dis-giyim",
+    categoryName: "Dış Giyim & Palto",
+    images: [
+      "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 12,
+    sizes: ["S", "M", "L", "XL"],
+    colors: [{ name: "Mat Siyah", hex: "#1A1A1A" }],
+    details: ["Su ve Rüzgar Geçirmez Dokuma", "Gizli su geçirmez fermuar"]
+  },
+  {
+    id: "netero-prod-9",
+    name: "Kadın Bordo Kaşmir Pelerin Palto",
+    slug: "kadin-bordo-kasmir-pelerin-palto",
+    description: "Zarif pelerin kesimi, bordo rengin derinliği ve kaşmirin eşsiz yumuşaklığı ile büyüleyici palto.",
+    price: 16800,
+    compareAtPrice: 19500,
+    categorySlug: "dis-giyim",
+    categoryName: "Dış Giyim & Palto",
+    images: [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: true,
+    stock: 3,
+    sizes: ["S-M", "L-XL"],
+    colors: [{ name: "Bordo", hex: "#800020" }],
+    details: ["%100 Saf Kaşmir Dokuma", "İpek Saten İç Astar"]
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // 2. KADIN KOLEKSİYONU (kadin)
+  // ═══════════════════════════════════════════════════════════
   {
     id: "netero-prod-3",
     name: "Saf İpek Dökümlü Kadın Gömlek",
@@ -130,10 +166,68 @@ export const PRODUCTS: Product[] = [
     ],
     details: [
       "%100 Doğal Mulberry İpeği",
-      "Gerçek sedef düğmeler",
-      "Hassas elde yıkama veya kuru temizleme"
+      "Gerçek sedef düğmeler"
     ]
   },
+  {
+    id: "netero-prod-10",
+    name: "Moğol Kaşmiri V Yaka Kadın Triko Kazak",
+    slug: "mogol-kasmiri-v-yaka-kadin-triko-kazak",
+    description: "Teninize tüy gibi dokunan saf Moğol kaşmiri. Derin V yaka ve minimalist dikiş kalıbı.",
+    price: 8900,
+    categorySlug: "kadin",
+    categoryName: "Kadın Koleksiyonu",
+    images: [
+      "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 8,
+    sizes: ["XS", "S", "M", "L"],
+    colors: [
+      { name: "Krem Bej", hex: "#F5F5DC" },
+      { name: "Duman Grisi", hex: "#4A4A4A" }
+    ],
+    details: ["%100 Saf Kaşmir", "Hassas yıkama yapılmalıdır"]
+  },
+  {
+    id: "netero-prod-11",
+    name: "İtalyan Yün Piliseli Kadın Midi Etek",
+    slug: "italyan-yun-piliseli-kadin-midi-etek",
+    description: "Yüksek bel kesimi ve hareketli pilise detaylarıyla modern terziliğin zarafet simgesi.",
+    price: 7250,
+    categorySlug: "kadin",
+    categoryName: "Kadın Koleksiyonu",
+    images: [
+      "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 10,
+    sizes: ["36", "38", "40"],
+    colors: [{ name: "Siyah", hex: "#1A1A1A" }],
+    details: ["%100 İtalyan Ince Yün Dokuma", "Yan gizli fermuar kapama"]
+  },
+  {
+    id: "netero-prod-12",
+    name: "Atelier Kuşaklı İpek Elbise",
+    slug: "atelier-kusakli-ipek-elbise",
+    description: "Akıcı ipek kumaşı, derin sırt detayı ve kendinden kuşaklı bel V kesimi ile eşsiz akşam elbisesi.",
+    price: 11500,
+    compareAtPrice: 14000,
+    categorySlug: "kadin",
+    categoryName: "Kadın Koleksiyonu",
+    images: [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: true,
+    stock: 6,
+    sizes: ["36", "38", "40"],
+    colors: [{ name: "Zümrüt Yeşil", hex: "#1B4D3E" }],
+    details: ["%100 İpek Saten Dokuma"]
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // 3. ERKEK KOLEKSİYONU (erkek)
+  // ═══════════════════════════════════════════════════════════
   {
     id: "netero-prod-4",
     name: "Erkek İtalyan Yün Blazer Ceket",
@@ -155,7 +249,6 @@ export const PRODUCTS: Product[] = [
     ],
     details: [
       "%100 Super 130s İtalyan Yünü",
-      "İç cep ve pasaport gözü",
       "Nefes alabilen viskon iç astar"
     ]
   },
@@ -179,8 +272,69 @@ export const PRODUCTS: Product[] = [
     ],
     details: [
       "%100 Organik Ege Pamuğu",
-      "240 GSM ağır kumaş tok doku",
-      "Çekmezlik garantili"
+      "240 GSM ağır kumaş tok doku"
+    ]
+  },
+  {
+    id: "netero-prod-13",
+    name: "Merinos Yünü Boğazlı Erkek Kazak",
+    slug: "merinos-yunu-bogazli-erkek-kazak",
+    description: "Avustralya merinos yününden ince dokulu, vücudu saran ve kaşındırmayan boğazlı lüks kazak.",
+    price: 6900,
+    categorySlug: "erkek",
+    categoryName: "Erkek Koleksiyonu",
+    images: [
+      "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 14,
+    sizes: ["S", "M", "L", "XL"],
+    colors: [{ name: "Siyah", hex: "#1A1A1A" }],
+    details: ["%100 Avustralya Merinos Yünü"]
+  },
+  {
+    id: "netero-prod-14",
+    name: "Minimalist Terzi Kesim Erkek Pantolon",
+    slug: "minimalist-terzi-kesim-erkek-pantolon",
+    description: "Kırışmayan İtalyan yün karışımlı kumaştan duble paçalı terzi pantolonu.",
+    price: 5400,
+    categorySlug: "erkek",
+    categoryName: "Erkek Koleksiyonu",
+    images: [
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 16,
+    sizes: ["48", "50", "52", "54"],
+    colors: [{ name: "Kömür Grisi", hex: "#2B2B2B" }],
+    details: ["İtalyan Terzi Kesimi", "Duble Paça"]
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // 4. DERİ AKSESUAR & ÇANTA (aksesuar)
+  // ═══════════════════════════════════════════════════════════
+  {
+    id: "netero-prod-2",
+    name: "Netero Minimalist Deri Omuz Çantası",
+    slug: "netero-minimalist-deri-omuz-cantasi",
+    description: "Tabaklanmış hakiki dana derisinden el işçiliğiyle üretilen, zamansız siluete sahip lüks omuz çantası. Mıknatıslı pirinç klips ve süet iç astar.",
+    price: 9850,
+    categorySlug: "aksesuar",
+    categoryName: "Deri Aksesuar & Çanta",
+    images: [
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: true,
+    stock: 8,
+    sizes: ["Tek Ebat"],
+    colors: [
+      { name: "Taba Kahve", hex: "#8B4513" },
+      { name: "Gece Siyahı", hex: "#1A1A1A" }
+    ],
+    details: [
+      "%100 Hakiki Dana Derisi",
+      "Genişlik: 28cm, Yükseklik: 20cm"
     ]
   },
   {
@@ -201,10 +355,42 @@ export const PRODUCTS: Product[] = [
       { name: "Siyah", hex: "#1A1A1A" },
       { name: "Taba", hex: "#8B4513" }
     ],
-    details: [
-      "RFID Temassız Kart Koruması",
-      "El dikimi mumlu ip dikişler"
-    ]
+    details: ["RFID Temassız Kart Koruması"]
+  },
+  {
+    id: "netero-prod-15",
+    name: "El Yapımı Dana Derisi Evrak & Laptop Çantası",
+    slug: "el-yapimi-dana-derisi-evrak-laptop-cantasi",
+    description: "15 inç MacBook ve belgeleriniz için tasarlanmış, süet astarlı ve ayarlanabilir askılı lüks deri evrak çantası.",
+    price: 12400,
+    compareAtPrice: 15000,
+    categorySlug: "aksesuar",
+    categoryName: "Deri Aksesuar & Çanta",
+    images: [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: true,
+    stock: 7,
+    sizes: ["Tek Ebat"],
+    colors: [{ name: "Siyah", hex: "#1A1A1A" }],
+    details: ["15 inç Laptop Gözü", "Süet Koruyucu Astar"]
+  },
+  {
+    id: "netero-prod-16",
+    name: "İtalyan Deri Klasik Erkek Kemer",
+    slug: "italyan-deri-klasik-erkek-kemer",
+    description: "Bitkisel tabaklanmış 3.5cm eninde mat pirinç tokalı hakiki deri kemer.",
+    price: 2450,
+    categorySlug: "aksesuar",
+    categoryName: "Deri Aksesuar & Çanta",
+    images: [
+      "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 20,
+    sizes: ["85", "90", "95", "100"],
+    colors: [{ name: "Siyah", hex: "#1A1A1A" }],
+    details: ["%100 Hakiki Dana Derisi", "Mat Pirinç Toka"]
   }
 ];
 
