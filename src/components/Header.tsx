@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, ShoppingBag, Heart, User, Menu, X, ChevronRight } from "lucide-react";
+import { Search, ShoppingBag, Heart, User, Menu, X, ChevronDown, ChevronRight, Sparkles } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
-import { PRODUCTS } from "@/lib/data";
+import { PRODUCTS, CATEGORIES } from "@/lib/data";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedCat, setMobileExpandedCat] = useState<string | null>("kadin");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -21,19 +22,24 @@ export default function Header() {
     ? PRODUCTS.filter((p) =>
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.categoryName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.subcategoryName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.description.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : [];
 
+  const kadinCat = CATEGORIES.find(c => c.slug === "kadin");
+  const erkekCat = CATEGORIES.find(c => c.slug === "erkek");
+
   return (
     <>
       {/* Top Notification Bar */}
-      <div className="bg-brand-charcoal text-brand-cream text-xs py-2 px-4 text-center font-medium tracking-wide">
+      <div className="bg-brand-charcoal text-brand-cream text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+        <Sparkles size={13} className="text-brand-amber hidden sm:inline" />
         <span>5.000 TL Üzeri Siparişlerde Ücretsiz VIP Kargo & Sigortalı Teslimat</span>
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 bg-brand-cream/90 backdrop-blur-md border-b border-brand-border transition-all">
+      <header className="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-border transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Mobile Menu Button */}
@@ -48,30 +54,89 @@ export default function Header() {
 
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-heading font-bold text-2xl sm:text-3xl tracking-widest text-brand-charcoal group-hover:text-brand-amber transition-colors">
+            <span className="font-heading font-extrabold text-2xl sm:text-3xl tracking-widest text-brand-charcoal group-hover:text-brand-amber transition-colors">
               NETERO
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium">
+          {/* Desktop Navigation with Elite Dropdowns */}
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-semibold">
             <Link href="/" className="hover:text-brand-amber transition-colors py-2">
               Ana Sayfa
             </Link>
-            <Link href="/kategori/kadin" className="hover:text-brand-amber transition-colors py-2">
-              Kadın
-            </Link>
-            <Link href="/kategori/erkek" className="hover:text-brand-amber transition-colors py-2">
-              Erkek
-            </Link>
+
+            {/* KADIN DROPDOWN */}
+            <div className="relative group py-6">
+              <Link
+                href="/kategori/kadin"
+                className="flex items-center gap-1 hover:text-brand-amber transition-colors"
+              >
+                <span>Kadın</span>
+                <ChevronDown size={14} className="group-hover:rotate-180 transition-transform text-brand-muted" />
+              </Link>
+              
+              <div className="absolute top-full left-0 w-64 bg-white border border-brand-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-3 space-y-1">
+                <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-amber border-b border-brand-border/60">
+                  Kadın Alt Kategorileri
+                </div>
+                <Link
+                  href="/kategori/kadin"
+                  className="block px-3 py-2 text-xs font-bold text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
+                >
+                  ✨ Tüm Kadın Koleksiyonu
+                </Link>
+                {kadinCat?.subcategories.map((sub) => (
+                  <Link
+                    key={sub.id}
+                    href={`/kategori/kadin`}
+                    className="block px-3 py-2 text-xs font-medium text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* ERKEK DROPDOWN */}
+            <div className="relative group py-6">
+              <Link
+                href="/kategori/erkek"
+                className="flex items-center gap-1 hover:text-brand-amber transition-colors"
+              >
+                <span>Erkek</span>
+                <ChevronDown size={14} className="group-hover:rotate-180 transition-transform text-brand-muted" />
+              </Link>
+
+              <div className="absolute top-full left-0 w-64 bg-white border border-brand-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-3 space-y-1">
+                <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-amber border-b border-brand-border/60">
+                  Erkek Alt Kategorileri
+                </div>
+                <Link
+                  href="/kategori/erkek"
+                  className="block px-3 py-2 text-xs font-bold text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
+                >
+                  ✨ Tüm Erkek Koleksiyonu
+                </Link>
+                {erkekCat?.subcategories.map((sub) => (
+                  <Link
+                    key={sub.id}
+                    href={`/kategori/erkek`}
+                    className="block px-3 py-2 text-xs font-medium text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Link href="/kategori/dis-giyim" className="hover:text-brand-amber transition-colors py-2">
               Dış Giyim
             </Link>
             <Link href="/kategori/aksesuar" className="hover:text-brand-amber transition-colors py-2">
-              Aksesuar
+              Aksesuar & Çanta
             </Link>
             <Link href="/hakkimizda" className="hover:text-brand-muted text-brand-muted transition-colors py-2">
-              Hikayemiz
+              Atelier Hikayemiz
             </Link>
           </nav>
 
@@ -135,7 +200,7 @@ export default function Header() {
                 <Search size={20} className="text-brand-muted mr-2" />
                 <input
                   type="text"
-                  placeholder="Koleksiyon veya ürün adı yazın (örn: Kaşmir Palto, İpek Gömlek)..."
+                  placeholder="Koleksiyon veya ürün adı yazın (örn: Kaşmir Palto, İpek Gömlek, Loafer)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full py-3 bg-transparent text-sm focus:outline-none text-brand-charcoal"
@@ -169,7 +234,7 @@ export default function Header() {
                           />
                           <div className="flex-1">
                             <h4 className="text-sm font-semibold text-brand-charcoal">{product.name}</h4>
-                            <p className="text-xs text-brand-muted">{product.categoryName}</p>
+                            <p className="text-xs text-brand-muted">{product.categoryName} &bull; {product.subcategoryName}</p>
                           </div>
                           <span className="text-sm font-bold text-brand-amber">
                             ₺{product.price.toLocaleString("tr-TR")}
@@ -178,9 +243,9 @@ export default function Header() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-center py-6 text-sm text-brand-muted">
+                    <div className="p-4 text-center text-sm text-brand-muted">
                       Aradığınız kriterlere uygun ürün bulunamadı.
-                    </p>
+                    </div>
                   )}
                 </div>
               )}
@@ -189,7 +254,9 @@ export default function Header() {
         )}
       </header>
 
-      {/* Mobile Navigation Sidebar Drawer */}
+      {/* ═══════════════════════════════════════════════════════════
+          MOBILE MENU DRAWER (ELİT VE KULLANICI DOSTU ACCORDION)
+          ═══════════════════════════════════════════════════════════ */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex">
           {/* Backdrop */}
@@ -198,77 +265,128 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
-          <div className="relative w-4/5 max-w-sm bg-brand-cream h-full p-6 flex flex-col justify-between shadow-2xl z-10">
+          {/* Drawer Body */}
+          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto z-10">
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-brand-border">
-                <span className="font-heading font-bold text-2xl tracking-widest text-brand-charcoal">
-                  NETERO
+              {/* Header */}
+              <div className="p-4 border-b border-brand-border flex items-center justify-between bg-brand-cream">
+                <span className="font-heading font-extrabold text-xl tracking-widest text-brand-charcoal">
+                  NETERO MENÜ
                 </span>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-brand-charcoal min-w-[48px] min-h-[48px] flex items-center justify-center"
+                  className="p-2 text-brand-charcoal hover:text-brand-amber"
+                  aria-label="Menüyü Kapat"
                 >
                   <X size={24} />
                 </button>
               </div>
 
-              <nav className="mt-8 flex flex-col space-y-4 text-base font-medium">
+              {/* Navigation Links & Accordions */}
+              <div className="p-4 space-y-3">
                 <Link
                   href="/"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 border-b border-brand-border/40 hover:text-brand-amber"
+                  className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
                 >
-                  <span>Ana Sayfa</span>
-                  <ChevronRight size={18} />
+                  Ana Sayfa
                 </Link>
-                <Link
-                  href="/kategori/kadin"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 border-b border-brand-border/40 hover:text-brand-amber"
-                >
-                  <span>Kadın Koleksiyonu</span>
-                  <ChevronRight size={18} />
-                </Link>
-                <Link
-                  href="/kategori/erkek"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 border-b border-brand-border/40 hover:text-brand-amber"
-                >
-                  <span>Erkek Koleksiyonu</span>
-                  <ChevronRight size={18} />
-                </Link>
+
+                {/* KADIN ACCORDION */}
+                <div className="border border-brand-border rounded-lg overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpandedCat(mobileExpandedCat === "kadin" ? null : "kadin")}
+                    className="w-full flex items-center justify-between p-3 bg-brand-cream/60 font-heading font-bold text-sm text-brand-charcoal"
+                  >
+                    <span>👗 Kadın Koleksiyonu</span>
+                    <ChevronDown size={16} className={`transition-transform ${mobileExpandedCat === "kadin" ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileExpandedCat === "kadin" && (
+                    <div className="p-2 space-y-1 bg-white border-t border-brand-border">
+                      <Link
+                        href="/kategori/kadin"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block py-2 px-3 text-xs font-bold text-brand-amber hover:bg-brand-cream rounded"
+                      >
+                        ✨ Tüm Kadın Ürünleri
+                      </Link>
+                      {kadinCat?.subcategories.map(sub => (
+                        <Link
+                          key={sub.id}
+                          href="/kategori/kadin"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1.5 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
+                        >
+                          &bull; {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* ERKEK ACCORDION */}
+                <div className="border border-brand-border rounded-lg overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpandedCat(mobileExpandedCat === "erkek" ? null : "erkek")}
+                    className="w-full flex items-center justify-between p-3 bg-brand-cream/60 font-heading font-bold text-sm text-brand-charcoal"
+                  >
+                    <span>👔 Erkek Koleksiyonu</span>
+                    <ChevronDown size={16} className={`transition-transform ${mobileExpandedCat === "erkek" ? "rotate-180" : ""}`} />
+                  </button>
+                  {mobileExpandedCat === "erkek" && (
+                    <div className="p-2 space-y-1 bg-white border-t border-brand-border">
+                      <Link
+                        href="/kategori/erkek"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block py-2 px-3 text-xs font-bold text-brand-amber hover:bg-brand-cream rounded"
+                      >
+                        ✨ Tüm Erkek Ürünleri
+                      </Link>
+                      {erkekCat?.subcategories.map(sub => (
+                        <Link
+                          key={sub.id}
+                          href="/kategori/erkek"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1.5 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
+                        >
+                          &bull; {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <Link
                   href="/kategori/dis-giyim"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 border-b border-brand-border/40 hover:text-brand-amber"
+                  className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
                 >
-                  <span>Dış Giyim & Palto</span>
-                  <ChevronRight size={18} />
+                  🧥 Dış Giyim & Palto
                 </Link>
+
                 <Link
                   href="/kategori/aksesuar"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 border-b border-brand-border/40 hover:text-brand-amber"
+                  className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
                 >
-                  <span>Deri Aksesuar & Çanta</span>
-                  <ChevronRight size={18} />
+                  👜 Deri Aksesuar & Çanta
                 </Link>
-                <Link
-                  href="/hakkimizda"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-3 hover:text-brand-amber text-brand-muted"
-                >
-                  <span>Atelier Hikayemiz</span>
-                  <ChevronRight size={18} />
-                </Link>
-              </nav>
+              </div>
             </div>
 
-            <div className="pt-6 border-t border-brand-border">
-              <p className="text-xs text-brand-muted text-center">
-                © 2026 Netero Giyim Atelier. Tüm hakları saklıdır.
-              </p>
+            {/* Mobile Footer Help */}
+            <div className="p-4 border-t border-brand-border bg-brand-cream">
+              <a
+                href="https://wa.me/905070871789?text=Merhaba,%20Netero%20online%20mağazanızdan%20sipariş%20vermek%20istiyorum."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-md flex items-center justify-center gap-2 shadow"
+              >
+                <span>WhatsApp ile Hızlı Sipariş</span>
+              </a>
             </div>
           </div>
         </div>

@@ -112,9 +112,11 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
       {/* Product Details Section */}
       <div className="p-4 flex-1 flex flex-col justify-between">
         <div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-brand-muted">
-            {product.categoryName}
-          </span>
+          <div className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-brand-amber">
+            <span>{product.categoryName}</span>
+            <span>&bull;</span>
+            <span>{product.subcategoryName}</span>
+          </div>
 
           <Link href={`/urun/${product.slug}`}>
             <h3 className="font-heading font-semibold text-sm text-brand-charcoal group-hover:text-brand-amber transition-colors mt-1 line-clamp-1">

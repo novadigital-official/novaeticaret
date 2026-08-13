@@ -41,6 +41,8 @@ export default function AdminDashboardPage() {
       price: Number(newProduct.price),
       categorySlug: newProduct.categorySlug,
       categoryName: newProduct.categoryName,
+      subcategorySlug: "genel",
+      subcategoryName: "Genel",
       images: newProduct.images,
       isFeatured: true,
       stock: Number(newProduct.stock),
