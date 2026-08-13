@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, ShoppingBag, Heart, User, Menu, X, ChevronDown, ChevronRight, Sparkles } from "lucide-react";
+import { Search, ShoppingBag, Heart, User, Menu, X, ChevronDown, Sparkles, Home } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 import { PRODUCTS, CATEGORIES } from "@/lib/data";
 
@@ -60,7 +60,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation with Elite Dropdowns */}
-          <nav className="hidden lg:flex items-center space-x-6 text-sm font-semibold">
+          <nav className="hidden lg:flex items-center space-x-8 text-sm font-semibold">
             <Link href="/" className="hover:text-brand-amber transition-colors py-2">
               Ana Sayfa
             </Link>
@@ -69,31 +69,33 @@ export default function Header() {
             <div className="relative group py-6">
               <Link
                 href="/kategori/kadin"
-                className="flex items-center gap-1 hover:text-brand-amber transition-colors"
+                className="flex items-center gap-1.5 hover:text-brand-amber transition-colors"
               >
-                <span>Kadın</span>
+                <span>Kadın Koleksiyonu</span>
                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform text-brand-muted" />
               </Link>
               
-              <div className="absolute top-full left-0 w-64 bg-white border border-brand-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-3 space-y-1">
-                <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-amber border-b border-brand-border/60">
-                  Kadın Alt Kategorileri
+              <div className="absolute top-full left-0 w-80 bg-white border border-brand-border rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4 space-y-2">
+                <div className="flex items-center justify-between border-b border-brand-border/60 pb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-amber">Kadın Kategorileri</span>
+                  <Link href="/kategori/kadin" className="text-[11px] font-bold text-brand-charcoal hover:text-brand-amber">Tümünü Gör →</Link>
                 </div>
-                <Link
-                  href="/kategori/kadin"
-                  className="block px-3 py-2 text-xs font-bold text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
-                >
-                  ✨ Tüm Kadın Koleksiyonu
-                </Link>
-                {kadinCat?.subcategories.map((sub) => (
-                  <Link
-                    key={sub.id}
-                    href={`/kategori/kadin`}
-                    className="block px-3 py-2 text-xs font-medium text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
-                  >
-                    {sub.name}
-                  </Link>
-                ))}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  {kadinCat?.subcategories.map((sub) => (
+                    <Link
+                      key={sub.id}
+                      href={`/kategori/kadin`}
+                      className="flex items-center gap-2 p-2 hover:bg-brand-cream rounded-lg transition-all group/item"
+                    >
+                      {sub.image && (
+                        <img src={sub.image} alt={sub.name} className="w-8 h-8 rounded-full object-cover border border-brand-border flex-shrink-0" />
+                      )}
+                      <span className="text-xs font-medium text-brand-charcoal group-hover/item:text-brand-amber group-hover/item:font-bold line-clamp-1">
+                        {sub.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -101,40 +103,36 @@ export default function Header() {
             <div className="relative group py-6">
               <Link
                 href="/kategori/erkek"
-                className="flex items-center gap-1 hover:text-brand-amber transition-colors"
+                className="flex items-center gap-1.5 hover:text-brand-amber transition-colors"
               >
-                <span>Erkek</span>
+                <span>Erkek Koleksiyonu</span>
                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform text-brand-muted" />
               </Link>
 
-              <div className="absolute top-full left-0 w-64 bg-white border border-brand-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-3 space-y-1">
-                <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand-amber border-b border-brand-border/60">
-                  Erkek Alt Kategorileri
+              <div className="absolute top-full left-0 w-80 bg-white border border-brand-border rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4 space-y-2">
+                <div className="flex items-center justify-between border-b border-brand-border/60 pb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-amber">Erkek Kategorileri</span>
+                  <Link href="/kategori/erkek" className="text-[11px] font-bold text-brand-charcoal hover:text-brand-amber">Tümünü Gör →</Link>
                 </div>
-                <Link
-                  href="/kategori/erkek"
-                  className="block px-3 py-2 text-xs font-bold text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
-                >
-                  ✨ Tüm Erkek Koleksiyonu
-                </Link>
-                {erkekCat?.subcategories.map((sub) => (
-                  <Link
-                    key={sub.id}
-                    href={`/kategori/erkek`}
-                    className="block px-3 py-2 text-xs font-medium text-brand-charcoal hover:bg-brand-cream hover:text-brand-amber rounded-md transition-colors"
-                  >
-                    {sub.name}
-                  </Link>
-                ))}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  {erkekCat?.subcategories.map((sub) => (
+                    <Link
+                      key={sub.id}
+                      href={`/kategori/erkek`}
+                      className="flex items-center gap-2 p-2 hover:bg-brand-cream rounded-lg transition-all group/item"
+                    >
+                      {sub.image && (
+                        <img src={sub.image} alt={sub.name} className="w-8 h-8 rounded-full object-cover border border-brand-border flex-shrink-0" />
+                      )}
+                      <span className="text-xs font-medium text-brand-charcoal group-hover/item:text-brand-amber group-hover/item:font-bold line-clamp-1">
+                        {sub.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <Link href="/kategori/dis-giyim" className="hover:text-brand-amber transition-colors py-2">
-              Dış Giyim
-            </Link>
-            <Link href="/kategori/aksesuar" className="hover:text-brand-amber transition-colors py-2">
-              Aksesuar & Çanta
-            </Link>
             <Link href="/hakkimizda" className="hover:text-brand-muted text-brand-muted transition-colors py-2">
               Atelier Hikayemiz
             </Link>
@@ -255,7 +253,7 @@ export default function Header() {
       </header>
 
       {/* ═══════════════════════════════════════════════════════════
-          MOBILE MENU DRAWER (ELİT VE KULLANICI DOSTU ACCORDION)
+          MOBILE MENU DRAWER (ELİT ACCORDION)
           ═══════════════════════════════════════════════════════════ */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex">
@@ -271,7 +269,7 @@ export default function Header() {
               {/* Header */}
               <div className="p-4 border-b border-brand-border flex items-center justify-between bg-brand-cream">
                 <span className="font-heading font-extrabold text-xl tracking-widest text-brand-charcoal">
-                  NETERO MENÜ
+                  NETERO
                 </span>
                 <button
                   type="button"
@@ -290,7 +288,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
                 >
-                  Ana Sayfa
+                  🏠 Ana Sayfa
                 </Link>
 
                 {/* KADIN ACCORDION */}
@@ -317,9 +315,10 @@ export default function Header() {
                           key={sub.id}
                           href="/kategori/kadin"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-1.5 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
+                          className="flex items-center gap-2 py-2 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
                         >
-                          &bull; {sub.name}
+                          {sub.image && <img src={sub.image} alt={sub.name} className="w-5 h-5 rounded-full object-cover" />}
+                          <span>{sub.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -350,9 +349,10 @@ export default function Header() {
                           key={sub.id}
                           href="/kategori/erkek"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-1.5 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
+                          className="flex items-center gap-2 py-2 px-3 text-xs text-brand-charcoal hover:bg-brand-cream rounded"
                         >
-                          &bull; {sub.name}
+                          {sub.image && <img src={sub.image} alt={sub.name} className="w-5 h-5 rounded-full object-cover" />}
+                          <span>{sub.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -360,19 +360,11 @@ export default function Header() {
                 </div>
 
                 <Link
-                  href="/kategori/dis-giyim"
+                  href="/hakkimizda"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
                 >
-                  🧥 Dış Giyim & Palto
-                </Link>
-
-                <Link
-                  href="/kategori/aksesuar"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2.5 px-3 font-heading font-bold text-sm text-brand-charcoal hover:bg-brand-cream rounded-md"
-                >
-                  👜 Deri Aksesuar & Çanta
+                  📜 Atelier Hikayemiz
                 </Link>
               </div>
             </div>
@@ -391,6 +383,46 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      {/* ═══════════════════════════════════════════════════════════
+          TRENDYOL-STYLE MOBILE STICKY BOTTOM BAR (ZARİF & KOLAY ERİŞİM)
+          ═══════════════════════════════════════════════════════════ */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-brand-border py-2 px-4 flex items-center justify-around shadow-lg">
+        <Link href="/" className="flex flex-col items-center gap-1 text-brand-charcoal hover:text-brand-amber">
+          <Home size={20} />
+          <span className="text-[10px] font-bold">Ana Sayfa</span>
+        </Link>
+        <Link href="/kategori/kadin" className="flex flex-col items-center gap-1 text-brand-charcoal hover:text-brand-amber">
+          <span className="text-base leading-none">👗</span>
+          <span className="text-[10px] font-bold">Kadın</span>
+        </Link>
+        <Link href="/kategori/erkek" className="flex flex-col items-center gap-1 text-brand-charcoal hover:text-brand-amber">
+          <span className="text-base leading-none">👔</span>
+          <span className="text-[10px] font-bold">Erkek</span>
+        </Link>
+        <Link href="/favoriler" className="flex flex-col items-center gap-1 text-brand-charcoal hover:text-brand-amber relative">
+          <Heart size={20} />
+          {wishlist.length > 0 && (
+            <span className="absolute -top-1 right-1 bg-brand-amber text-brand-charcoal text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">
+              {wishlist.length}
+            </span>
+          )}
+          <span className="text-[10px] font-bold">Favoriler</span>
+        </Link>
+        <button
+          type="button"
+          onClick={() => toggleCart(true)}
+          className="flex flex-col items-center gap-1 text-brand-charcoal hover:text-brand-amber relative"
+        >
+          <ShoppingBag size={20} />
+          {cartItemCount > 0 && (
+            <span className="absolute -top-1 right-0 bg-brand-amber text-brand-charcoal text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">
+              {cartItemCount}
+            </span>
+          )}
+          <span className="text-[10px] font-bold">Sepetim</span>
+        </button>
+      </div>
     </>
   );
 }

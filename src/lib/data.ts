@@ -4,6 +4,7 @@ export interface SubCategory {
   slug: string;
   parentSlug: string;
   iconName?: string;
+  image?: string;
 }
 
 export interface Product {
@@ -64,62 +65,40 @@ export interface Category {
 
 export const CATEGORIES: Category[] = [
   {
-    id: "cat-1",
-    name: "Kadın Koleksiyonu",
+    id: "cat-kadin",
+    name: "Kadın",
     slug: "kadin",
-    description: "Zarif kesimler, ipeksi dokular ve zamansız lüks kadın giyim parçaları.",
+    description: "Zarif silüetler, ipek ve kaşmir dokular ile lüks kadın gardırobu.",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
     subcategories: [
-      { id: "sub-k-1", name: "Elbise & Abiye", slug: "elbise", parentSlug: "kadin", iconName: "Sparkles" },
-      { id: "sub-k-2", name: "Gömlek & Bluz", slug: "gomlek-bluz", parentSlug: "kadin", iconName: "Shirt" },
-      { id: "sub-k-3", name: "Kaban & Dış Giyim", slug: "kaban-dis-giyim", parentSlug: "kadin", iconName: "CloudSun" },
-      { id: "sub-k-4", name: "Pantolon & Etek", slug: "pantolon-etek", parentSlug: "kadin", iconName: "Layers" },
-      { id: "sub-k-5", name: "Çanta & Aksesuar", slug: "canta-aksesuar", parentSlug: "kadin", iconName: "ShoppingBag" }
+      { id: "sub-k-1", name: "Elbise & Abiye", slug: "elbise", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-k-2", name: "Gömlek & Bluz", slug: "gomlek-bluz", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-k-3", name: "Kaban & Dış Giyim", slug: "dis-giyim", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-k-4", name: "Pantolon & Etek", slug: "pantolon-etek", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-k-5", name: "Çanta & Aksesuar", slug: "canta-aksesuar", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-k-6", name: "Ayakkabı & Topuklu", slug: "ayakkabi", parentSlug: "kadin", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=300&auto=format&fit=crop" }
     ]
   },
   {
-    id: "cat-2",
-    name: "Erkek Koleksiyonu",
+    id: "cat-erkek",
+    name: "Erkek",
     slug: "erkek",
-    description: "Minimalist terzilik, üst seviye kumaşlar ve sofistike erkek tasarımları.",
+    description: "Kusursuz İtalyan terziliği, üst kalite kumaşlar ve modern maskülen parçalar.",
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop",
     subcategories: [
-      { id: "sub-e-1", name: "Ceket & Takım", slug: "ceket-takim", parentSlug: "erkek", iconName: "Award" },
-      { id: "sub-e-2", name: "Gömlek & Polo", slug: "gomlek-polo", parentSlug: "erkek", iconName: "Shirt" },
-      { id: "sub-e-3", name: "Palto & Mont", slug: "palto-mont", parentSlug: "erkek", iconName: "CloudSun" },
-      { id: "sub-e-4", name: "Terzi Pantolonu", slug: "pantolon-jean", parentSlug: "erkek", iconName: "Layers" },
-      { id: "sub-e-5", name: "Ayakkabı & Deri", slug: "ayakkabi-deri", parentSlug: "erkek", iconName: "ShoppingBag" }
-    ]
-  },
-  {
-    id: "cat-3",
-    name: "Dış Giyim & Palto",
-    slug: "dis-giyim",
-    description: "Kaşmir kabanlar, saf yün palto ve fırtına korumalı ceketler.",
-    image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=1000&auto=format&fit=crop",
-    subcategories: [
-      { id: "sub-d-1", name: "Kaşmir Palto", slug: "kasmir-palto", parentSlug: "dis-giyim" },
-      { id: "sub-d-2", name: "Trençkot & Parka", slug: "trenckot", parentSlug: "dis-giyim" },
-      { id: "sub-d-3", name: "Deri Ceket", slug: "deri-ceket", parentSlug: "dis-giyim" }
-    ]
-  },
-  {
-    id: "cat-4",
-    name: "Deri Aksesuar & Çanta",
-    slug: "aksesuar",
-    description: "El yapımı dana derisi çantalar, kemerler ve minimalist cüzdanlar.",
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop",
-    subcategories: [
-      { id: "sub-a-1", name: "Deri Çanta", slug: "deri-canta", parentSlug: "aksesuar" },
-      { id: "sub-a-2", name: "Cüzdan & Kartlık", slug: "cuzdan", parentSlug: "aksesuar" },
-      { id: "sub-a-3", name: "Deri Kemer", slug: "kemer", parentSlug: "aksesuar" }
+      { id: "sub-e-1", name: "Takım & Ceket", slug: "ceket-takim", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-e-2", name: "Gömlek & Polo", slug: "gomlek-polo", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-e-3", name: "Palto & Dış Giyim", slug: "dis-giyim", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-e-4", name: "Terzi Pantolonu", slug: "pantolon-jean", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-e-5", name: "Deri Loafer & Ayakkabı", slug: "ayakkabi", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=300&auto=format&fit=crop" },
+      { id: "sub-e-6", name: "Cüzdan, Kemer & Çanta", slug: "canta-aksesuar", parentSlug: "erkek", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=300&auto=format&fit=crop" }
     ]
   }
 ];
 
 export const PRODUCTS: Product[] = [
   // ═══════════════════════════════════════════════════════════
-  // KADIN - 1. ELBİSE & ABİYE (elbise)
+  // KADIN - 1. ELBİSE & ABİYE
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-k-elb-1",
@@ -129,7 +108,7 @@ export const PRODUCTS: Product[] = [
     price: 11500,
     compareAtPrice: 14000,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "elbise",
     subcategoryName: "Elbise & Abiye",
     images: [
@@ -153,11 +132,11 @@ export const PRODUCTS: Product[] = [
     price: 9800,
     compareAtPrice: 12200,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "elbise",
     subcategoryName: "Elbise & Abiye",
     images: [
-      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: false,
     stock: 8,
@@ -167,7 +146,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // KADIN - 2. GÖMLEK & BLUZ (gomlek-bluz)
+  // KADIN - 2. GÖMLEK & BLUZ
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-k-blz-1",
@@ -177,12 +156,11 @@ export const PRODUCTS: Product[] = [
     price: 6450,
     compareAtPrice: 7900,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "gomlek-bluz",
     subcategoryName: "Gömlek & Bluz",
     images: [
-      "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: true,
     stock: 12,
@@ -200,7 +178,7 @@ export const PRODUCTS: Product[] = [
     description: "Teninize tüy gibi dokunan saf Moğol kaşmiri. Derin V yaka ve minimalist dikiş kalıbı.",
     price: 8900,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "gomlek-bluz",
     subcategoryName: "Gömlek & Bluz",
     images: [
@@ -217,18 +195,18 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // KADIN - 3. KABAN & DIŞ GİYİM (kaban-dis-giyim)
+  // KADIN - 3. KABAN & DIŞ GİYİM
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-k-out-1",
-    name: "Kadın Bordo Kaşmir Pelerin Palto",
-    slug: "kadin-bordo-kasmir-pelerin-palto",
-    description: "Zarif pelerin kesimi, bordo rengin asaleti ve saf kaşmirin eşsiz yumuşaklığı ile büyüleyici palto.",
+    name: "Bordo Kaşmir Pelerin Kadın Kaban",
+    slug: "bordo-kasmir-pelerin-kadin-kaban",
+    description: "Zarif pelerin kesimi, bordo rengin asaleti ve saf kaşmirin eşsiz yumuşaklığı ile büyüleyici kaban.",
     price: 16800,
     compareAtPrice: 19500,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
-    subcategorySlug: "kaban-dis-giyim",
+    categoryName: "Kadın",
+    subcategorySlug: "dis-giyim",
     subcategoryName: "Kaban & Dış Giyim",
     images: [
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
@@ -247,8 +225,8 @@ export const PRODUCTS: Product[] = [
     price: 24500,
     compareAtPrice: 28000,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
-    subcategorySlug: "kaban-dis-giyim",
+    categoryName: "Kadın",
+    subcategorySlug: "dis-giyim",
     subcategoryName: "Kaban & Dış Giyim",
     images: [
       "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop"
@@ -261,7 +239,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // KADIN - 4. PANTOLON & ETEK (pantolon-etek)
+  // KADIN - 4. PANTOLON & ETEK
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-k-btm-1",
@@ -270,7 +248,7 @@ export const PRODUCTS: Product[] = [
     description: "Yüksek bel kesimi ve hareketli pilise detaylarıyla modern terziliğin zarafet simgesi.",
     price: 7250,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "pantolon-etek",
     subcategoryName: "Pantolon & Etek",
     images: [
@@ -289,7 +267,7 @@ export const PRODUCTS: Product[] = [
     description: "Geniş paça formu ve akıcı yün kumaşıyla hem ofis hem seyahat için tasarlanan lüks pantolon.",
     price: 6800,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "pantolon-etek",
     subcategoryName: "Pantolon & Etek",
     images: [
@@ -303,17 +281,17 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // KADIN - 5. ÇANTA & AKSESUAR (canta-aksesuar)
+  // KADIN - 5. ÇANTA & AKSESUAR
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-k-acc-1",
-    name: "Atelier El Yapımı Dana Derisi Omuz Çantası",
-    slug: "atelier-el-yapimi-dana-derisi-omuz-cantasi",
+    name: "Atelier El Yapımı Dana Derisi Kadın Çanta",
+    slug: "atelier-el-yapimi-dana-derisi-kadin-canta",
     description: "Floransa tabakhanelerinden seçilmiş bitkisel tabaklanmış dana derisi. Altın kaplama pirinç kilit detayı.",
     price: 13900,
     compareAtPrice: 16500,
     categorySlug: "kadin",
-    categoryName: "Kadın Koleksiyonu",
+    categoryName: "Kadın",
     subcategorySlug: "canta-aksesuar",
     subcategoryName: "Çanta & Aksesuar",
     images: [
@@ -330,7 +308,31 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // ERKEK - 1. CEKET & TAKIM (ceket-takim)
+  // KADIN - 6. AYAKKABI & TOPUKLU
+  // ═══════════════════════════════════════════════════════════
+  {
+    id: "prod-k-sh-1",
+    name: "Hakiki Süet İtalyan Kadın Stiletto Topuklu",
+    slug: "hakiki-suet-italyan-kadin-stiletto-topuklu",
+    description: "7.5 cm ideal topuk yüksekliği, ergonomik iç taban ve kadife dokulu hakiki süet deri şıklığı.",
+    price: 8400,
+    compareAtPrice: 10500,
+    categorySlug: "kadin",
+    categoryName: "Kadın",
+    subcategorySlug: "ayakkabi",
+    subcategoryName: "Ayakkabı & Topuklu",
+    images: [
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 6,
+    sizes: ["36", "37", "38", "39", "40"],
+    colors: [{ name: "Nude Bej", hex: "#E3BC9A" }, { name: "Siyah", hex: "#1A1A1A" }],
+    details: ["%100 Hakiki İtalyan Süet", "Doğal kösele taban"]
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // ERKEK - 1. TAKIM & CEKET
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-e-jkt-1",
@@ -340,12 +342,11 @@ export const PRODUCTS: Product[] = [
     price: 14200,
     compareAtPrice: 17500,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
+    categoryName: "Erkek",
     subcategorySlug: "ceket-takim",
-    subcategoryName: "Ceket & Takım",
+    subcategoryName: "Takım & Ceket",
     images: [
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: true,
     stock: 6,
@@ -363,9 +364,9 @@ export const PRODUCTS: Product[] = [
     description: "Klasik 6 düğmeli kruvaze kapama, sivri yaka kesimi ve dökümlü yapısıyla asil bir duruş sergileyen ceket.",
     price: 15800,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
+    categoryName: "Erkek",
     subcategorySlug: "ceket-takim",
-    subcategoryName: "Ceket & Takım",
+    subcategoryName: "Takım & Ceket",
     images: [
       "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
     ],
@@ -377,7 +378,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // ERKEK - 2. GÖMLEK & POLO (gomlek-polo)
+  // ERKEK - 2. GÖMLEK & POLO
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-e-top-1",
@@ -386,7 +387,7 @@ export const PRODUCTS: Product[] = [
     description: "Uzun elyaflı Giza Mısır pamuğundan üretilmiş, ütü tutan ve nefes alan kusursuz kalıplı klasik gömlek.",
     price: 4200,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
+    categoryName: "Erkek",
     subcategorySlug: "gomlek-polo",
     subcategoryName: "Gömlek & Polo",
     images: [
@@ -408,7 +409,7 @@ export const PRODUCTS: Product[] = [
     description: "Saf ipek ve ince pamuk karışımı ince triko dokuma. Düğmesiz açık yakalı İtalyan Riviera tarzı.",
     price: 3600,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
+    categoryName: "Erkek",
     subcategorySlug: "gomlek-polo",
     subcategoryName: "Gömlek & Polo",
     images: [
@@ -425,7 +426,7 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // ERKEK - 3. PALTO & MONT (palto-mont)
+  // ERKEK - 3. PALTO & DIŞ GİYİM
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-e-out-1",
@@ -435,9 +436,9 @@ export const PRODUCTS: Product[] = [
     price: 18450,
     compareAtPrice: 22000,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
-    subcategorySlug: "palto-mont",
-    subcategoryName: "Palto & Mont",
+    categoryName: "Erkek",
+    subcategorySlug: "dis-giyim",
+    subcategoryName: "Palto & Dış Giyim",
     images: [
       "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=1000&auto=format&fit=crop"
     ],
@@ -450,9 +451,28 @@ export const PRODUCTS: Product[] = [
     ],
     details: ["%70 Moğol Kaşmiri, %30 İtalyan Merinos Yünü", "Rüzgar geçirmez astar"]
   },
+  {
+    id: "prod-e-out-2",
+    name: "Su ve Rüzgar Geçirmez Minimalist Erkek Parka",
+    slug: "su-ve-ruzgar-gecirmez-minimalist-erkek-parka",
+    description: "Nefes alabilen özel membran dokusuyla yağmurlu günlerde kusursuz stil sunan lüks parka.",
+    price: 9200,
+    categorySlug: "erkek",
+    categoryName: "Erkek",
+    subcategorySlug: "dis-giyim",
+    subcategoryName: "Palto & Dış Giyim",
+    images: [
+      "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1000&auto=format&fit=crop"
+    ],
+    isFeatured: false,
+    stock: 12,
+    sizes: ["S", "M", "L", "XL"],
+    colors: [{ name: "Mat Siyah", hex: "#1A1A1A" }],
+    details: ["Su ve Rüzgar Geçirmez Membran", "Termo iç astar"]
+  },
 
   // ═══════════════════════════════════════════════════════════
-  // ERKEK - 4. TERZİ PANTOLONU (pantolon-jean)
+  // ERKEK - 4. TERZİ PANTOLONU & JEAN
   // ═══════════════════════════════════════════════════════════
   {
     id: "prod-e-btm-1",
@@ -461,9 +481,9 @@ export const PRODUCTS: Product[] = [
     description: "Kırışmayan İtalyan yün karışımlı kumaştan duble paçalı, yan ayarlama tokalı terzi pantolonu.",
     price: 5400,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
+    categoryName: "Erkek",
     subcategorySlug: "pantolon-jean",
-    subcategoryName: "Terzi Pantolonu",
+    subcategoryName: "Terzi Pantolonu & Jean",
     images: [
       "https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=1000&auto=format&fit=crop"
     ],
@@ -478,66 +498,44 @@ export const PRODUCTS: Product[] = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // ERKEK - 5. AYAKKABI & DERİ (ayakkabi-deri)
+  // ERKEK - 5. DERİ LOAFER & AYAKKABI
   // ═══════════════════════════════════════════════════════════
   {
-    id: "prod-e-acc-1",
+    id: "prod-e-sh-1",
     name: "Hakiki Dana Derisi El Yapımı Erkek Loafer",
     slug: "hakiki-dana-derisi-el-yapimi-erkek-loafer",
     description: "Kösele tabanlı, el dikişli maskülen ve zamansız İtalyan loafer ayakkabı.",
     price: 8900,
+    compareAtPrice: 11200,
     categorySlug: "erkek",
-    categoryName: "Erkek Koleksiyonu",
-    subcategorySlug: "ayakkabi-deri",
-    subcategoryName: "Ayakkabı & Deri",
+    categoryName: "Erkek",
+    subcategorySlug: "ayakkabi",
+    subcategoryName: "Deri Loafer & Ayakkabı",
     images: [
-      "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: true,
     stock: 7,
     sizes: ["41", "42", "43", "44", "45"],
-    colors: [{ name: "Konyak Kahve", hex: "#8B4513" }],
+    colors: [{ name: "Konyak Kahve", hex: "#8B4513" }, { name: "Siyah", hex: "#1A1A1A" }],
     details: ["%100 Hakiki Dana Derisi", "Doğal kösele taban"]
   },
 
   // ═══════════════════════════════════════════════════════════
-  // 3. DIŞ GİYİM GENEL (dis-giyim)
+  // ERKEK - 6. CÜZDAN, KEMER & ÇANTA
   // ═══════════════════════════════════════════════════════════
   {
-    id: "prod-dis-1",
-    name: "Su ve Rüzgar Geçirmez Minimalist Parka",
-    slug: "su-ve-ruzgar-gecirmez-minimalist-parka",
-    description: "Nefes alabilen özel membran dokusuyla yağmurlu günlerde kusursuz stil sunan lüks parka.",
-    price: 9200,
-    categorySlug: "dis-giyim",
-    categoryName: "Dış Giyim & Palto",
-    subcategorySlug: "trenckot",
-    subcategoryName: "Trençkot & Parka",
-    images: [
-      "https://images.unsplash.com/photo-1548883354-7622d03aca27?q=80&w=1000&auto=format&fit=crop"
-    ],
-    isFeatured: false,
-    stock: 12,
-    sizes: ["S", "M", "L", "XL"],
-    colors: [{ name: "Mat Siyah", hex: "#1A1A1A" }],
-    details: ["Su ve Rüzgar Geçirmez Membran", "Termo iç astar"]
-  },
-
-  // ═══════════════════════════════════════════════════════════
-  // 4. DERİ AKSESUAR GENEL (aksesuar)
-  // ═══════════════════════════════════════════════════════════
-  {
-    id: "prod-acc-1",
+    id: "prod-e-acc-1",
     name: "El Yapımı Minimalist Deri Kartlık & Cüzdan",
     slug: "el-yapimi-minimalist-deri-kartlik-cuzdan",
     description: "İnce profilli, RFID korumalı, 8 kart kapasiteli el dikişli hakiki deri cüzdan.",
     price: 1850,
-    categorySlug: "aksesuar",
-    categoryName: "Deri Aksesuar & Çanta",
-    subcategorySlug: "cuzdan",
-    subcategoryName: "Cüzdan & Kartlık",
+    categorySlug: "erkek",
+    categoryName: "Erkek",
+    subcategorySlug: "canta-aksesuar",
+    subcategoryName: "Cüzdan, Kemer & Çanta",
     images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1000&auto=format&fit=crop"
     ],
     isFeatured: false,
     stock: 30,
